@@ -127,7 +127,7 @@ if (!class_exists('WPSimpleForm')) {
                     <p><small>This calculator assumes your Ethiopian tax payer</small></p>
                     <p id="taxError"><small></small></p>
                 </div>
-                <button id="submitTax" class="btn btn-small bg-grey-dark-one">Calculate your tax</button>
+                <button id="submitTax" class="btn btn-small bg-grey-dark-one" style="background: #faa31b;">Calculate your tax</button>
             </div>
 
 

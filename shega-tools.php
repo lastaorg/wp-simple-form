@@ -131,7 +131,7 @@ if (!class_exists('WPSimpleForm')) {
             </div>
 
 
-            <div class="results">
+            <div id="results">
                 <h2>Your results</h2>
                 <div> <b id="grossPay"></b></div>
                 <div> <b id="incomeTax"></b></div>

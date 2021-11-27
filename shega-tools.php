@@ -77,7 +77,6 @@ if (!class_exists('WPSimpleForm')) {
                 #calc-header {
 
 
-                    font-family: Gotham;
                     font-style: normal;
                     font-weight: bold;
                     font-size: 43px;
@@ -92,7 +91,6 @@ if (!class_exists('WPSimpleForm')) {
                     width: 689px;
 
 
-                    font-family: Gotham;
                     font-style: normal;
                     font-weight: normal;
                     font-size: 22px;

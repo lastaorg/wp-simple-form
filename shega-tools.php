@@ -115,7 +115,7 @@ if (!class_exists('WPSimpleForm')) {
                     color: red;
                 }
             </style>
-            <div class="container">
+            <div class="container" style="margin: auto; width: 50%">
                 <h1 id="calc-header">VAT Calculator</h1>
                 <p id="calc-desc">
                     We have created this VAT calculator as a free to use tool for calculating VAT rates in the Ethiopia.

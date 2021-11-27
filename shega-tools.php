@@ -109,34 +109,36 @@ if (!class_exists('WPSimpleForm')) {
                 .formQuestion {
                     margin-top: 50px;
                 }
+
                 #taxError {
                     display: none;
                     color: red;
                 }
             </style>
-            <h1 id="calc-header">VAT Calculator</h1>
-            <p id="calc-desc">
-                We have created this VAT calculator as a free to use tool for calculating VAT rates in the Ethiopia.
-            </p>
-            <div class="formQuestion">
-                <div class="question">
-                    <label for="monthlySalary">Monthly Salary</label>
-                    <input id="monthlySalary" name="monthlySalary" type="number" />
-                    <p><small>This calculator assumes your Ethiopian tax payer</small></p>
-                    <p id="taxError"><small></small></p>
+            <div class="container">
+                <h1 id="calc-header">VAT Calculator</h1>
+                <p id="calc-desc">
+                    We have created this VAT calculator as a free to use tool for calculating VAT rates in the Ethiopia.
+                </p>
+                <div class="formQuestion">
+                    <div class="question">
+                        <label for="monthlySalary">Monthly Salary</label>
+                        <input id="monthlySalary" name="monthlySalary" type="number" />
+                        <p><small>This calculator assumes your Ethiopian tax payer</small></p>
+                        <p id="taxError"><small></small></p>
+                    </div>
+                    <button id="submitTax" class="btn btn-small bg-grey-dark-one" style="background: #faa31b;">Calculate your tax</button>
                 </div>
-                <button id="submitTax" class="btn btn-small bg-grey-dark-one" style="background: #faa31b;">Calculate your tax</button>
+
+
+                <div id="results">
+                    <h2>Your results</h2>
+                    <div> <b id="grossSalary"></b></div>
+                    <div> <b id="incomeTax"></b></div>
+                    <div> <b id="pention"></b></div>
+                    <div> <b id="netSalary"></b></div>
+                </div>
             </div>
-
-
-            <div id="results">
-                <h2>Your results</h2>
-                <div> <b id="grossSalary"></b></div>
-                <div> <b id="incomeTax"></b></div>
-                <div> <b id="pention"></b></div>
-                <div> <b id="netSalary"></b></div>
-            </div>
-
             <script type="text/javascript">
                 (function($) {
                     $("#submitTax").click(function() {

@@ -82,7 +82,7 @@ if (!class_exists('WPSimpleForm')) {
                     <label for="monthlySalary">Monthly Salary</label>
                     <input id="monthlySalary" name="monthlySalary" type="number" />
                     <p><small>This calculator assumes your Ethiopian tax payer</small></p>
-                    <p id="taxError"><small>This calculator assumes your Ethiopian tax payer</small></p>
+                    <p id="taxError"><small></small></p>
                 </div>
                 <button id="submitTax" class="btn">Calculate your tax</button>
             </div>

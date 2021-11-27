@@ -73,6 +73,49 @@ if (!class_exists('WPSimpleForm')) {
 
             // Build the form
 ?>
+            <style>
+                #calc-header {
+
+
+                    font-family: Gotham;
+                    font-style: normal;
+                    font-weight: bold;
+                    font-size: 43px;
+                    line-height: 48px;
+                    /* identical to box height */
+
+
+                    color: #000000;
+                }
+
+                #calc-desc {
+                    width: 689px;
+
+
+                    font-family: Gotham;
+                    font-style: normal;
+                    font-weight: normal;
+                    font-size: 22px;
+                    line-height: 25px;
+                    /* or 114% */
+
+
+                    color: #000000;
+
+                }
+
+                #results {
+                    display: none;
+                }
+
+                .formQuestion {
+                    margin-top: 50px;
+                }
+                #taxError {
+                    display: none;
+                    color: red;
+                }
+            </style>
             <h1 id="calc-header">VAT Calculator</h1>
             <p id="calc-desc">
                 We have created this VAT calculator as a free to use tool for calculating VAT rates in the Ethiopia.
@@ -95,6 +138,36 @@ if (!class_exists('WPSimpleForm')) {
                 <div> <b id="pention"></b></div>
                 <div> <b id="netSalary"></b></div>
             </div>
+
+            <script type="text/javascript">
+                (function($) {
+                    $("#submitTax").click(function() {
+                        $("#taxError").hide();
+                        $("#results").hide();
+                        let netSalary;
+                        let grossSalary;
+                        let pention;
+                        let incomeTax;
+                        grossSalary = $("#monthlySalary").val();
+                        if (!grossSalary || grossSalary == 0) {
+
+                            $("#taxError").html("<small>Please Enter a  valid salary.</small>");
+                            $("#taxError").show();
+                            return;
+                        }
+                        if (grossSalary > 500) {
+                            pention = 300;
+                            incomeTax = 0.15 * grossSalary;
+                            netSalary = grossSalary - pention; - incomeTax;
+                        }
+                        $("#pention").text(pention);
+                        $("#incomeTax").text(incomeTax);
+                        $("#netSalary").text(netSalary);
+                        $("#grossSalary").text(grossSalary);
+                        $("#result").show();
+                    })
+                })(jQuery)
+            </script>
 <?php
             // Return and clean buffer contents
             return ob_get_clean();

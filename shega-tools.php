@@ -51,52 +51,7 @@ if ( ! class_exists( 'WPSimpleForm' ) ) {
               'add_honeypot' => false,
             ), $atts, 'wpsimpleform' );
           
-        // Instantiate form class
-        $form = new PHPFormBuilder();
-        
-        // Set form options
-        $form->set_att( 'action', esc_url( admin_url( 'admin-post.php' ) ) );
-        $form->set_att( 'add_honeypot', $atts['add_honeypot'] );
-        
-        // Add form inputs
-        $form->add_input( 'action', array(
-              'type' => 'hidden',
-              'value' => 'wpsf_contact_form',
-              ), 'action' );
-            
-        $form->add_input( 'wp_nonce', array(
-            'type' => 'hidden',
-            'value' => wp_create_nonce( 'submit_wp_simple_form' ),
-            ), 'wp_nonce' );
-            
-        $form->add_input( 'redirect_id', array(
-            'type' => 'hidden',
-            'value' => $post->ID,
-            ), 'redirect_id' );
-            
-        $form->add_input( __( 'Name', 'wp-simple-form' ), array(
-            'type' => 'text',
-            'placeholder' => __( 'Enter your name', 'wp-simple-form' ),
-            'required' => true,
-            ), 'name' );
-            
-        $form->add_input( __( 'Email', 'wp-simple-form' ), array(
-            'type' => 'email',
-            'placeholder' => __( 'Enter your email address', 'wp-simple-form' ),
-            'required' => true,
-            ), 'email' );
-            
-        $form->add_input( __( 'Website', 'wp-simple-form' ), array(
-            'type' => 'url',
-            'placeholder' => __( 'Enter your website URL', 'wp-simple-form' ),
-            'required' => false,
-            ), 'website' );
-            
-        $form->add_input( __( 'Message', 'wp-simple-form' ), array(
-            'type' => 'textarea',
-            'placeholder' => __( 'Enter your message', 'wp-simple-form' ),
-            'required' => true,
-            ), 'message' );
+       
             
         // Shortcodes should not output data directly
         ob_start(); 
@@ -109,8 +64,9 @@ if ( ! class_exists( 'WPSimpleForm' ) ) {
         }
         
         // Build the form
-        $form->build_form();
-        
+       ?>
+       <h1>Hellow wwwww</h1>
+       <?php
         // Return and clean buffer contents
         return ob_get_clean();
         }

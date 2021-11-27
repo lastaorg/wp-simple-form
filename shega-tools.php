@@ -133,10 +133,10 @@ if (!class_exists('WPSimpleForm')) {
 
                 <div id="results">
                     <h2>Your results</h2>
-                    <div> <b id="grossSalary"></b></div>
-                    <div> <b id="incomeTax"></b></div>
-                    <div> <b id="pention"></b></div>
-                    <div> <b id="netSalary"></b></div>
+                    <div> Your gross salary is <b id="grossSalary"></b></div>
+                    <div> Your income tax is <b id="incomeTax"></b></div>
+                    <div> Your pention is <b id="pention"></b></div>
+                    <div> Your net salary is <b id="netSalary"></b></div>
                 </div>
             </div>
             <script type="text/javascript">

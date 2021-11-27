@@ -133,7 +133,7 @@ if (!class_exists('WPSimpleForm')) {
 
             <div id="results">
                 <h2>Your results</h2>
-                <div> <b id="grossPay"></b></div>
+                <div> <b id="grossSalary"></b></div>
                 <div> <b id="incomeTax"></b></div>
                 <div> <b id="pention"></b></div>
                 <div> <b id="netSalary"></b></div>
@@ -164,7 +164,7 @@ if (!class_exists('WPSimpleForm')) {
                         $("#incomeTax").text(incomeTax);
                         $("#netSalary").text(netSalary);
                         $("#grossSalary").text(grossSalary);
-                        $("#result").show();
+                        $("#results").show();
                     })
                 })(jQuery)
             </script>

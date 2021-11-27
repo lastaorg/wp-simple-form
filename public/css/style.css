@@ -1,0 +1,39 @@
+#calc-header {
+
+
+    font-family: Gotham;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 43px;
+    line-height: 48px;
+    /* identical to box height */
+
+
+    color: #000000;
+}
+
+#calc-desc {
+    width: 689px;
+
+
+    font-family: Gotham;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 22px;
+    line-height: 25px;
+    /* or 114% */
+
+
+    color: #000000;
+
+}
+#results{
+    display: none;
+}
+.formQuestion{
+    margin-top: 50px;
+}
+#taxError{
+    display: none;
+    color: red;
+}

@@ -152,6 +152,7 @@ if (!class_exists('WPSimpleForm')) {
                                 break;
 
                             default:
+                                console.log("noting matxched", grossSalary, typeof grossSalary);
                                 break;
                         }
 

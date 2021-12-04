@@ -147,16 +147,15 @@ if (!class_exists('WPSimpleForm')) {
                             console.log("noting matxched", grossSalary, typeof grossSalary);
                         }
 
-                        console.log("rate", rate, deducatable);
 
                         pention = pention_rate * grossSalary;
                         incomeTax = (rate * grossSalary) - deducatable;
                         netSalary = grossSalary - pention - incomeTax;
 
-                        $("#pention").text(pention);
-                        $("#incomeTax").text(incomeTax);
-                        $("#netSalary").text(netSalary);
-                        $("#grossSalary").text(grossSalary);
+                        $("#pention").text(pention.toFixed(2));
+                        $("#incomeTax").text(incomeTax.toFixed(2));
+                        $("#netSalary").text(netSalary.toFixed(2));
+                        $("#grossSalary").text(grossSalary.toFixed(2));
                         $("#results").show();
 
                     })(jQuery)

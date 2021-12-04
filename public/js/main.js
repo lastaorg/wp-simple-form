@@ -1,4 +1,4 @@
-/* jQuery(document).ready(function() {
+jQuery(document).ready(function() {
 (function($) {
     $("#submitTax").click(function() {
         $("#taxError").hide();
@@ -66,4 +66,4 @@
         $("#results").show();
     })
 })(jQuery);
-}); */
+});

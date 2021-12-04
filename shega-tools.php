@@ -101,6 +101,7 @@ if (!class_exists('WPSimpleForm')) {
             <script type="text/javascript">
                 (function($) {
                     $("#submitTax").click(function() {
+                        console.log("clikecled");
                         $("#taxError").hide();
                         $("#results").hide();
                         let netSalary;

@@ -1,7 +1,6 @@
 #calc-header {
 
 
-    font-family: Gotham;
     font-style: normal;
     font-weight: bold;
     font-size: 43px;
@@ -16,7 +15,6 @@
     width: 689px;
 
 
-    font-family: Gotham;
     font-style: normal;
     font-weight: normal;
     font-size: 22px;
@@ -27,13 +25,16 @@
     color: #000000;
 
 }
-#results{
+
+#results {
     display: none;
 }
-.formQuestion{
+
+.formQuestion {
     margin-top: 50px;
 }
-#taxError{
+
+#taxError {
     display: none;
     color: red;
 }

@@ -142,9 +142,10 @@ if (!class_exists('WPSimpleForm')) {
                         } else if (10900 < grossSalary) {
                             rate = 0.35;
                             deducatable = 1500.00;
-                        } else
+                        } else {
                             console.log("noting matxched", grossSalary, typeof grossSalary);
-                        
+                        }
+
                         console.log("rate", rate, deducatable);
 
                         pention = pention_rate * grossSalary;

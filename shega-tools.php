@@ -144,7 +144,8 @@ if (!class_exists('WPSimpleForm')) {
                             deducatable = 1500.00;
                         } else
                             console.log("noting matxched", grossSalary, typeof grossSalary);
-
+                        
+                        console.log("rate", rate, deducatable);
 
                         pention = pention_rate * grossSalary;
                         incomeTax = (rate * grossSalary) - deducatable;

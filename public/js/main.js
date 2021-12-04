@@ -1,3 +1,4 @@
+jQuery(document).ready(function() {
 (function($) {
     $("#submitTax").click(function() {
         $("#taxError").hide();
@@ -64,4 +65,5 @@
         $("#grossSalary").text(grossSalary);
         $("#results").show();
     })
-})(jQuery)
+})(jQuery);
+});

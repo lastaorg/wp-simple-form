@@ -99,7 +99,7 @@ if (!class_exists('WPSimpleForm')) {
                 </div>
             </div>
             <script type="text/javascript">
-                /* (function($) {
+                (function($) {
                     $("#submitTax").click(function() {
                         $("#taxError").hide();
                         $("#results").hide();
@@ -158,7 +158,7 @@ if (!class_exists('WPSimpleForm')) {
                         $("#grossSalary").text(grossSalary);
                         $("#results").show();
                     })
-                })(jQuery) */
+                })(jQuery)
             </script>
 <?php
             // Return and clean buffer contents

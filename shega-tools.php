@@ -86,7 +86,7 @@ if (!class_exists('WPSimpleForm')) {
                         <p><small>This calculator assumes your Ethiopian tax payer</small></p>
                         <p id="taxError"><small></small></p>
                     </div>
-                    <button id="submitTax" class="btn btn-small bg-grey-dark-one" style="background: #faa31b;">Calculate your tax</button>
+                    <button id="submitTax" onclick="submitTax()" class="btn btn-small bg-grey-dark-one" style="background: #faa31b;">Calculate your tax</button>
                 </div>
 
 
@@ -99,8 +99,9 @@ if (!class_exists('WPSimpleForm')) {
                 </div>
             </div>
             <script type="text/javascript">
-                (function($) {
-                    $("#submitTax").click(function() {
+                function submitTax() {
+                    (function($) {
+
                         console.log("clikecled");
                         $("#taxError").hide();
                         $("#results").hide();
@@ -158,8 +159,9 @@ if (!class_exists('WPSimpleForm')) {
                         $("#netSalary").text(netSalary);
                         $("#grossSalary").text(grossSalary);
                         $("#results").show();
-                    })
-                })(jQuery)
+
+                    })(jQuery)
+                }
             </script>
 <?php
             // Return and clean buffer contents

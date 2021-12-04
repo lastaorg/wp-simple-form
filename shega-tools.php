@@ -111,7 +111,7 @@ if (!class_exists('WPSimpleForm')) {
                         let deducatable;
                         let pention_rate = .07;
 
-                        grossSalary = $("#monthlySalary").val();
+                        grossSalary = Number.parseFloat($("#monthlySalary").val());
 
                         if (!grossSalary || grossSalary == 0) {
 

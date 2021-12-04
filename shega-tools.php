@@ -140,7 +140,6 @@ if (!class_exists('WPSimpleForm')) {
                         } else if (7800 < grossSalary && grossSalary <= 10900) {
                             rate = 0.30;
                             deducatable = 955.00;
-                            break;
                         } else if (10900 < grossSalary) {
                             rate = 0.35;
                             deducatable = 1500.00;

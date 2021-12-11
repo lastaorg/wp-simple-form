@@ -111,8 +111,7 @@ if (!class_exists('WPSimpleForm')) {
                         </tr>
                     </table>
 
-
-                    <div><span id="back-to-calc">&lt;&lt;Back to Calculator</span></div>
+                    <div><button id="back-to-calc" onclick="back_to_calc()">&lt;&lt;Back to Calculator</button></div>
 
                 </div>
             </div>
@@ -170,29 +169,24 @@ if (!class_exists('WPSimpleForm')) {
                         incomeTax = (rate * grossSalary) - deducatable;
                         netSalary = grossSalary - pention - incomeTax;
 
-                        $("#pention").text(pention.toFixed(2)+ " ETB");
-                        $("#incomeTax").text(incomeTax.toFixed(2)+ " ETB");
-                        $("#netSalary").text(netSalary.toFixed(2)+ " ETB");
-                        $("#grossSalary").text(grossSalary.toFixed(2)+ " ETB");
+                        $("#pention").text(pention.toFixed(2) + " ETB");
+                        $("#incomeTax").text(incomeTax.toFixed(2) + " ETB");
+                        $("#netSalary").text(netSalary.toFixed(2) + " ETB");
+                        $("#grossSalary").text(grossSalary.toFixed(2) + " ETB");
                         $(".formQuestion").hide();
                         $("#results").show(500);
 
                     })(jQuery)
                 }
 
-                (function($) {
-                    $(document).ready(function() {
-                        console.log("ready")
-                        $("back-to-calc").click(function() {
+                function back_to_calc() {
+                    (function($) {
                         console.log("cliked1")
-                            $("#results").hide();
-                        console.log("cliked")
-
-                            $(".formQuestion").show(500);
-
-                        })
-                    })
-                })(jQuery)
+                        $("#results").hide();
+                        console.log("cliked")=
+                        $(".formQuestion").show(500);
+                    })(jQuery)
+                }
             </script>
 <?php
             // Return and clean buffer contents

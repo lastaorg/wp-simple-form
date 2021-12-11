@@ -74,15 +74,16 @@ if (!class_exists('WPSimpleForm')) {
             // Build the form
 ?>
 
-            <div class="container" style="margin: auto; width: 50%">
-                <h1 id="calc-header">VAT Calculator</h1>
+            <div class="" style="margin: 0; width: 60%">
+                <h1 id="calc-header">Income Tax Calculator</h1>
                 <p id="calc-desc">
                     We have created this VAT calculator as a free to use tool for calculating VAT rates in the Ethiopia.
                 </p>
                 <div class="formQuestion">
                     <div class="question">
-                        <label for="monthlySalary">Monthly Salary</label>
-                        <input id="monthlySalary" name="monthlySalary" type="number" />
+                        <!-- 
+                        <label for="monthlySalary">Monthly Salary</label> -->
+                        <input id="monthlySalary" name="monthlySalary" type="number" placeholder="Monthly Salary" />
                         <p><small>This calculator assumes your Ethiopian tax payer</small></p>
                         <p id="taxError"><small></small></p>
                     </div>
@@ -91,11 +92,28 @@ if (!class_exists('WPSimpleForm')) {
 
 
                 <div id="results">
-                    <h2>Your results</h2>
-                    <div> Your gross salary is <b id="grossSalary"></b></div>
-                    <div> Your income tax is <b id="incomeTax"></b></div>
-                    <div> Your pention is <b id="pention"></b></div>
-                    <div> Your net salary is <b id="netSalary"></b></div>
+                    <table class="calc-result-table">
+                        <tr>
+                            <td id="grossSalary-text">Gross Salary</td>
+                            <td id="grossSalary"></td>
+                        </tr>
+                        <tr>
+                            <td id="incomeTax-text">Income Tax</td>
+                            <td id="incomeTax"></td>
+                        </tr>
+                        <tr>
+                            <td id="pention-text">Pension</td>
+                            <td id="pention"></td>
+                        </tr>
+                        <tr id="netSalary-row">
+                            <td id="netSalary-text">Net Salary</td>
+                            <td id="netSalary"></td>
+                        </tr>
+                    </table>
+
+
+                    <div><span id="back-to-calc">&lt;&lt;Back to Calculator</span></div>
+
                 </div>
             </div>
             <script type="text/javascript">
@@ -156,10 +174,21 @@ if (!class_exists('WPSimpleForm')) {
                         $("#incomeTax").text(incomeTax.toFixed(2));
                         $("#netSalary").text(netSalary.toFixed(2));
                         $("#grossSalary").text(grossSalary.toFixed(2));
-                        $("#results").show();
+                        $(".formQuestion").hide();
+                        $("#results").show(500);
 
                     })(jQuery)
                 }
+
+                (function($) {
+                    $(document).ready(function() {
+                        $("back-to-calc").click(function() {
+                            $("#results").hide();
+                            $(".formQuestion").show(500);
+
+                        })
+                    })
+                })(jQuery)
             </script>
 <?php
             // Return and clean buffer contents

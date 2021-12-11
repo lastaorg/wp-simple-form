@@ -170,10 +170,10 @@ if (!class_exists('WPSimpleForm')) {
                         incomeTax = (rate * grossSalary) - deducatable;
                         netSalary = grossSalary - pention - incomeTax;
 
-                        $("#pention").text(pention.toFixed(2));
-                        $("#incomeTax").text(incomeTax.toFixed(2));
-                        $("#netSalary").text(netSalary.toFixed(2));
-                        $("#grossSalary").text(grossSalary.toFixed(2));
+                        $("#pention").text(pention.toFixed(2)+ " ETB");
+                        $("#incomeTax").text(incomeTax.toFixed(2)+ " ETB");
+                        $("#netSalary").text(netSalary.toFixed(2)+ " ETB");
+                        $("#grossSalary").text(grossSalary.toFixed(2)+ " ETB");
                         $(".formQuestion").hide();
                         $("#results").show(500);
 
@@ -182,8 +182,12 @@ if (!class_exists('WPSimpleForm')) {
 
                 (function($) {
                     $(document).ready(function() {
+                        console.log("ready")
                         $("back-to-calc").click(function() {
+                        console.log("cliked1")
                             $("#results").hide();
+                        console.log("cliked")
+
                             $(".formQuestion").show(500);
 
                         })

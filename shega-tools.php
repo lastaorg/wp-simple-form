@@ -183,7 +183,7 @@ if (!class_exists('WPSimpleForm')) {
                     (function($) {
                         console.log("cliked1")
                         $("#results").hide();
-                        console.log("cliked")=
+                        
                         $(".formQuestion").show(500);
                     })(jQuery)
                 }

@@ -256,7 +256,7 @@ if (!class_exists('WPSimpleForm')) {
 
                         }
 
-
+                        
 
                     })(jQuery)
                 }
@@ -265,7 +265,8 @@ if (!class_exists('WPSimpleForm')) {
                     (function($) {
                         console.log("cliked1")
                         $("#results").hide();
-
+                        $("#results-2").hide();
+                        //some
                         $(".formQuestion").show(500);
                     })(jQuery)
                 }
@@ -432,6 +433,7 @@ if (!class_exists('WPSimpleForm')) {
                     (function($) {
                         console.log("cliked1")
                         $("#results").hide();
+                        $("#results-2").hide();
 
                         $(".formQuestion").show(500);
                     })(jQuery)

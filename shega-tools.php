@@ -211,6 +211,8 @@ if (!class_exists('WPSimpleForm')) {
 
                         } else {
                             netSalary = Number.parseFloat($("#monthlySalary").val());
+
+                            //net
                             if (!netSalary || netSalary == 0) {
 
                                 $("#taxError").html("<small>Please Enter a  valid salary.</small>");

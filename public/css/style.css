@@ -6,7 +6,7 @@
     font-size: 43px;
     line-height: 48px;
     /* identical to box height */
-
+    text-align: center;
 
     color: #000000;
 }
@@ -79,6 +79,11 @@ table.calc-result-table td {
     color: #FAA31A;
 }
 
+.input-with-select{
+    /* width: 100%;
+    display: relative; */
+}
+
 .select select {
     /* Reset Select */
     appearance: none;
@@ -102,8 +107,9 @@ table.calc-result-table td {
 /* Custom Select wrapper */
 .select {
     position: relative;
+    right: 0;
     display: flex;
-    width: 20em;
+    min-width: 20em;
     height: 3em;
     border-radius: .25em;
     overflow: hidden;

@@ -84,12 +84,14 @@ if (!class_exists('WPSimpleForm')) {
                     <div class="question">
                         <!-- 
                         <label for="monthlySalary">Monthly Salary</label> -->
-                        <input id="monthlySalary" name="monthlySalary" type="number" placeholder="Monthly Salary" />
-                        <div class="select">
-                            <select id="income-tax-type">
-                                <option selected="selected" value="gross">Gross Salary</option>
-                                <option value="net">Net Salary</option>
-                            </select>
+                        <div class="row input-with-select">
+                            <input class="col-10 col-sm-12" id="monthlySalary" name="monthlySalary" type="number" placeholder="Monthly Salary" />
+                            <div class="select col-2 col-sm-12">
+                                <select id="income-tax-type">
+                                    <option selected="selected" value="gross">Gross Salary</option>
+                                    <option value="net">Net Salary</option>
+                                </select>
+                            </div>
                         </div>
 
                         <p><small>This calculator assumes you are Ethiopian tax payer.</small></p>
@@ -309,12 +311,15 @@ if (!class_exists('WPSimpleForm')) {
                     <div class="question">
                         <!-- 
                         <label for="monthlySalary">Monthly Salary</label> -->
-                        <input id="payment" name="payment" type="number" placeholder="Payment" />
-                        <div class="select">
-                            <select id="vat-type">
-                                <option selected="selected" value="inclusive">Including Tax</option>
-                                <option value="exclusive">Excluding VAT</option>
-                            </select>
+                        <div class="input-with-select row">
+
+                            <input class="col-10 col-sm-12" id="payment" name="payment" type="number" placeholder="Payment" />
+                            <div class="col-2 col-sm-12 select">
+                                <select id="vat-type">
+                                    <option selected="selected" value="inclusive">Including Tax</option>
+                                    <option value="exclusive">Excluding VAT</option>
+                                </select>
+                            </div>
                         </div>
 
                         <p><small>This calculator assumes you are in Ethiopia.</small></p>

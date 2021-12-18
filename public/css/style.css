@@ -80,8 +80,8 @@ table.calc-result-table td {
 }
 
 .input-with-select input{
-    height: 3em;
-    border-radius: 0.25em;
+    height: 3em !important;
+    border-radius: 0.25em !important;
 }
 
 .select select {

@@ -108,10 +108,10 @@ table.calc-result-table td {
 .select {
     position: relative;
     margin: 0;
-    padding: 0;
+    padding: 0 !important;
     right: 0;
     display: flex;
-    min-width: 20em;
+    
     height: 3em;
     border-radius: .25em;
     overflow: hidden;

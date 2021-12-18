@@ -85,8 +85,8 @@ if (!class_exists('WPSimpleForm')) {
                         <!-- 
                         <label for="monthlySalary">Monthly Salary</label> -->
                         <div class="row input-with-select">
-                            <input class="col-md-10 col-lg-10 col-sm-12" id="monthlySalary" name="monthlySalary" type="number" placeholder="Monthly Salary" />
-                            <div class="select col-md-2 col-lg-2 col-sm-12">
+                            <input class="col-md-8 col-lg-9 col-sm-12" id="monthlySalary" name="monthlySalary" type="number" placeholder="Monthly Salary" />
+                            <div class="select col-md-4 col-lg-3 col-sm-12">
                                 <select id="income-tax-type">
                                     <option selected="selected" value="gross">Gross Salary</option>
                                     <option value="net">Net Salary</option>
@@ -313,8 +313,8 @@ if (!class_exists('WPSimpleForm')) {
                         <label for="monthlySalary">Monthly Salary</label> -->
                         <div class="input-with-select row">
 
-                            <input class="col-md-10 col-lg-10 col-sm-12" id="payment" name="payment" type="number" placeholder="Payment" />
-                            <div class="col-md-2 col-lg-2 col-sm-12 select">
+                            <input class="col-md-8 col-lg-9 col-sm-12" id="payment" name="payment" type="number" placeholder="Payment" />
+                            <div class="col-md-4 col-lg-3 col-sm-12 select">
                                 <select id="vat-type">
                                     <option selected="selected" value="inclusive">Including Tax</option>
                                     <option value="exclusive">Excluding VAT</option>
@@ -333,7 +333,7 @@ if (!class_exists('WPSimpleForm')) {
                     <table class="calc-result-table">
                         <tr>
                             <td id="pention-text">Total Payment</td>
-                            <td class="sub-result totalpayment"></td>
+                            <td class="sub-result totalPayment"></td>
                         </tr>
                         <tr>
                             <td id="incomeTax-text">VAT</td>
@@ -363,7 +363,7 @@ if (!class_exists('WPSimpleForm')) {
 
                         <tr id="main-result-row">
                             <td id="main-result-text">Total Payment</td>
-                            <td class="main-result totalpayment"></td>
+                            <td class="main-result totalPayment"></td>
                         </tr>
                     </table>
 
@@ -419,7 +419,7 @@ if (!class_exists('WPSimpleForm')) {
                             $(".vat").text(vat.toFixed(2) + " ETB");
                             $(".totalPayment").text(totalPayment.toFixed(2) + " ETB");
                             $(".formQuestion").hide();
-                            $("#results").show(500);
+                            $("#results-2").show(500);
 
                         }
 

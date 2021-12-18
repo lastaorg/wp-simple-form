@@ -36,7 +36,8 @@ if (!class_exists('WPSimpleForm')) {
         public function __construct()
         {
             add_action('wp_enqueue_scripts', array($this, 'enqueue_scripts'));
-            add_shortcode('shega-tool-tax', array($this, 'form'));
+            add_shortcode('shega-tool-income-tax', array($this, 'incometax'));
+            add_shortcode('shega-tool-vat', array($this, 'vat'));
             add_action('admin_post_nopriv_wpsf_contact_form', array($this, 'form_handler'));
             add_action('admin_post_wpsf_contact_form', array($this, 'form_handler'));
         }
@@ -47,7 +48,7 @@ if (!class_exists('WPSimpleForm')) {
             wp_enqueue_script('wpsimpleform', plugins_url('/public/js/main.js', __FILE__), array(), 0.1);
         }
 
-        public function form($atts)
+        public function incometax($atts)
         {
             global $post;
 
@@ -75,9 +76,9 @@ if (!class_exists('WPSimpleForm')) {
 ?>
 
             <div class="" style="margin: 0; width: 60%">
-                <h1 id="calc-header">Income Tax Calculator</h1>
+                <h1 id="calc-header">Personal Income Tax Calculator</h1>
                 <p id="calc-desc">
-                    We have created this VAT calculator as a free to use tool for calculating VAT rates in the Ethiopia.
+                    We have created this Income Tax calculator as a free to use tool for calculating Income Tax rates in Ethiopia.
                 </p>
                 <div class="formQuestion">
                     <div class="question">
@@ -91,7 +92,7 @@ if (!class_exists('WPSimpleForm')) {
                             </select>
                         </div>
 
-                        <p><small>This calculator assumes your Ethiopian tax payer</small></p>
+                        <p><small>This calculator assumes you are Ethiopian tax payer.</small></p>
                         <p id="taxError"><small></small></p>
                     </div>
                     <button id="submitTax" onclick="submitTaxFuc()" class="btn btn-small bg-grey-dark-one" style="background: #faa31b;">Calculate your tax</button>
@@ -102,19 +103,43 @@ if (!class_exists('WPSimpleForm')) {
                     <table class="calc-result-table">
                         <tr>
                             <td id="grossSalary-text">Gross Salary</td>
-                            <td id="grossSalary"></td>
+                            <td class="sub-result grossSalary"></td>
                         </tr>
                         <tr>
                             <td id="incomeTax-text">Income Tax</td>
-                            <td id="incomeTax"></td>
+                            <td class="sub-result incomeTax"></td>
                         </tr>
                         <tr>
-                            <td id="pention-text">Pension</td>
-                            <td id="pention"></td>
+                            <td id="pention-text">Pension Contribution</td>
+                            <td class="sub-result pention"></td>
                         </tr>
-                        <tr id="netSalary-row">
-                            <td id="netSalary-text">Net Salary</td>
-                            <td id="netSalary"></td>
+                        <tr id="main-result-row">
+                            <td id="main-result-text">Net Salary</td>
+                            <td class="main-result netSalary"></td>
+                        </tr>
+                    </table>
+
+                    <div><button id="back-to-calc" onclick="back_to_calc()">&lt;&lt;Back to Calculator</button></div>
+
+                </div>
+
+                <div id="results-2">
+                    <table class="calc-result-table">
+                        <tr>
+                            <td id="netsalary-text">Net Salary</td>
+                            <td class="sub-result netSalary"></td>
+                        </tr>
+                        <tr>
+                            <td id="incomeTax-text">Income Tax</td>
+                            <td class="sub-result incomeTax"></td>
+                        </tr>
+                        <tr>
+                            <td id="pention-text">Pension Contribution</td>
+                            <td class="sub-result pention"></td>
+                        </tr>
+                        <tr id="main-result-row">
+                            <td id="main-result-text">Gross Salary</td>
+                            <td class="main-result grossSalary"></td>
                         </tr>
                     </table>
 
@@ -129,6 +154,7 @@ if (!class_exists('WPSimpleForm')) {
                         console.log("clikecled");
                         $("#taxError").hide();
                         $("#results").hide();
+                        $("#results-2").hide();
                         let netSalary;
                         let grossSalary;
                         let pention;
@@ -174,10 +200,10 @@ if (!class_exists('WPSimpleForm')) {
                             incomeTax = (rate * grossSalary) - deducatable;
                             netSalary = grossSalary - pention - incomeTax;
 
-                            $("#pention").text(pention.toFixed(2) + " ETB");
-                            $("#incomeTax").text(incomeTax.toFixed(2) + " ETB");
-                            $("#netSalary").text(netSalary.toFixed(2) + " ETB");
-                            $("#grossSalary").text(grossSalary.toFixed(2) + " ETB");
+                            $(".pention").text(pention.toFixed(2) + " ETB");
+                            $(".incomeTax").text(incomeTax.toFixed(2) + " ETB");
+                            $(".netSalary").text(netSalary.toFixed(2) + " ETB");
+                            $(".grossSalary").text(grossSalary.toFixed(2) + " ETB");
                             $(".formQuestion").hide();
                             $("#results").show(500);
 
@@ -219,10 +245,174 @@ if (!class_exists('WPSimpleForm')) {
                             incomeTax = (rate * grossSalary) - deducatable;
                             netSalary = grossSalary - pention - incomeTax;
 
-                            $("#pention").text(pention.toFixed(2) + " ETB");
-                            $("#incomeTax").text(incomeTax.toFixed(2) + " ETB");
-                            $("#netSalary").text(netSalary.toFixed(2) + " ETB");
-                            $("#grossSalary").text(grossSalary.toFixed(2) + " ETB");
+                            $(".pention").text(pention.toFixed(2) + " ETB");
+                            $(".incomeTax").text(incomeTax.toFixed(2) + " ETB");
+                            $(".netSalary").text(netSalary.toFixed(2) + " ETB");
+                            $(".grossSalary").text(grossSalary.toFixed(2) + " ETB");
+                            $(".formQuestion").hide();
+                            $("#results-2").show(500);
+
+                        }
+
+
+
+                    })(jQuery)
+                }
+
+                function back_to_calc() {
+                    (function($) {
+                        console.log("cliked1")
+                        $("#results").hide();
+
+                        $(".formQuestion").show(500);
+                    })(jQuery)
+                }
+            </script>
+        <?php
+            // Return and clean buffer contents
+            return ob_get_clean();
+        }
+
+        public function vat($atts)
+        {
+            global $post;
+
+            $atts = shortcode_atts(
+                array(
+                    'add_honeypot' => false,
+                ),
+                $atts,
+                'wpsimpleform'
+            );
+
+
+
+            // Shortcodes should not output data directly
+            ob_start();
+
+            // Status message
+            $status = filter_input(INPUT_GET, 'status', FILTER_VALIDATE_INT);
+
+            if ($status == 1) {
+                printf('<div class="wp-simpleform message success"><p>%s</p></div>', __('Submitted successfully!', 'wp-simple-form'));
+            }
+
+            // Build the form
+        ?>
+
+            <div class="" style="margin: 0; width: 60%">
+                <h1 id="calc-header">VAT Calculator</h1>
+                <p id="calc-desc">
+                    This tool will help you calculate VAT from your payment in Ethiopia.
+                </p>
+                <div class="formQuestion">
+                    <div class="question">
+                        <!-- 
+                        <label for="monthlySalary">Monthly Salary</label> -->
+                        <input id="payment" name="payment" type="number" placeholder="Payment" />
+                        <div class="select">
+                            <select id="vat-type">
+                                <option selected="selected" value="inclusive">Including Tax</option>
+                                <option value="exclusive">Excluding VAT</option>
+                            </select>
+                        </div>
+
+                        <p><small>This calculator assumes you are in Ethiopia.</small></p>
+                        <p id="taxError"><small></small></p>
+                    </div>
+                    <button id="submitTax" onclick="submitTaxFuc()" class="btn btn-small bg-grey-dark-one" style="background: #faa31b;">Calculate your tax</button>
+                </div>
+
+
+                <div id="results">
+                    <table class="calc-result-table">
+                        <tr>
+                            <td id="pention-text">Total Payment</td>
+                            <td class="sub-result totalpayment"></td>
+                        </tr>
+                        <tr>
+                            <td id="incomeTax-text">VAT</td>
+                            <td class="sub-result vat"></td>
+                        </tr>
+                        <tr id="main-result-row">
+                            <td id="main-result-text">Exclusive Payment</td>
+                            <td class="main-result payment"></td>
+                        </tr>
+                    </table>
+
+                    <div><button id="back-to-calc" onclick="back_to_calc()">&lt;&lt;Back to Calculator</button></div>
+
+                </div>
+
+                <div id="results-2">
+                    <table class="calc-result-table">
+
+                        <tr>
+                            <td id="pention-text">Payment without VAT</td>
+                            <td class="sub-result payment"></td>
+                        </tr>
+                        <tr>
+                            <td id="incomeTax-text">VAT</td>
+                            <td class="sub-result vat"></td>
+                        </tr>
+
+                        <tr id="main-result-row">
+                            <td id="main-result-text">Total Payment</td>
+                            <td class="main-result totalpayment"></td>
+                        </tr>
+                    </table>
+
+                    <div><button id="back-to-calc" onclick="back_to_calc()">&lt;&lt;Back to Calculator</button></div>
+
+                </div>
+            </div>
+            <script type="text/javascript">
+                function submitTaxFuc() {
+                    (function($) {
+
+                        console.log("clikecled");
+                        $("#taxError").hide();
+                        $("#results").hide();
+                        let payment;
+                        let totalPayment;
+                        let vat;
+
+                        let vat_rate = .15;
+                        if ($("#vat-type").val() == "inclusive") {
+                            totalPayment = Number.parseFloat($("#payment").val());
+                            if (!totalPayment || totalPayment == 0) {
+
+                                $("#taxError").html("<small>Please Enter a  valid Payment.</small>");
+                                $("#taxError").show();
+                                return;
+                            }
+
+
+                            payment = totalPayment / (1 + vat_rate);
+                            vat = payment * vat_rate;
+
+                            $(".payment").text(payment.toFixed(2) + " ETB");
+                            $(".vat").text(vat.toFixed(2) + " ETB");
+                            $(".totalPayment").text(totalPayment.toFixed(2) + " ETB");
+                            $(".formQuestion").hide();
+                            $("#results").show(500);
+
+                        } else {
+                            payment = Number.parseFloat($("#payment").val());
+                            if (!payment || payment == 0) {
+
+                                $("#taxError").html("<small>Please Enter a  valid Payment.</small>");
+                                $("#taxError").show();
+                                return;
+                            }
+
+
+                            vat = payment * vat_rate;
+                            totalPayment = payment + vat;
+
+                            $(".payment").text(payment.toFixed(2) + " ETB");
+                            $(".vat").text(vat.toFixed(2) + " ETB");
+                            $(".totalPayment").text(totalPayment.toFixed(2) + " ETB");
                             $(".formQuestion").hide();
                             $("#results").show(500);
 

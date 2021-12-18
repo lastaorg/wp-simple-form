@@ -26,6 +26,10 @@
     display: none;
 }
 
+#results-2 {
+    display: none;
+}
+
 .formQuestion {
     margin-top: 50px;
 }
@@ -39,7 +43,7 @@
     width: 100%;
 }
 
-.calc-result-table tr:not(#netSalary-row){
+.calc-result-table tr:not(#main-result-row){
     border-bottom: 1px solid #D3D7DA;
 }
 table.calc-result-table td{
@@ -47,18 +51,18 @@ table.calc-result-table td{
     font-size: 16px;
     padding: 10px 20px;
 }
-#grossSalary, #incomeTax, #pention{
+.sub-result{
     font-size: 18px;
     font-weight: bold;
     color: #13213C;
 }
-#netSalary{
+.main-result{
     font-size: 24px;
     font-weight: bold;
     color: #FAA31A;
 }
 
-#netSalary-text{
+#main-result-text{
     font-size: 24px;
     font-weight: bold;
     color: #000

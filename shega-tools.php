@@ -85,8 +85,8 @@ if (!class_exists('WPSimpleForm')) {
                         <!-- 
                         <label for="monthlySalary">Monthly Salary</label> -->
                         <div class="row input-with-select">
-                            <input class="col-md-7 col-lg-9 col-sm-12" id="monthlySalary" name="monthlySalary" type="number" placeholder="Monthly Salary" />
-                            <div class="select col-md-5 col-lg-3 col-sm-12">
+                            <input class="col-md-7 col-lg-8 col-sm-12" id="monthlySalary" name="monthlySalary" type="number" placeholder="Monthly Salary" />
+                            <div class="select col-md-5 col-lg-4 col-sm-12">
                                 <select id="income-tax-type">
                                     <option selected="selected" value="gross">Gross Salary</option>
                                     <option value="net">Net Salary</option>
@@ -316,8 +316,8 @@ if (!class_exists('WPSimpleForm')) {
                         <label for="monthlySalary">Monthly Salary</label> -->
                         <div class="input-with-select row">
 
-                            <input class="col-md-7 col-lg-9 col-sm-12" id="payment" name="payment" type="number" placeholder="Payment" />
-                            <div class="col-md-5 col-lg-3 col-sm-12 select">
+                            <input class="col-md-7 col-lg-8 col-sm-12" id="payment" name="payment" type="number" placeholder="Payment" />
+                            <div class="col-md-5 col-lg-4 col-sm-12 select">
                                 <select id="vat-type">
                                     <option selected="selected" value="inclusive">Including Tax</option>
                                     <option value="exclusive">Excluding VAT</option>

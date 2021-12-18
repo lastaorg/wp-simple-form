@@ -75,7 +75,7 @@ if (!class_exists('WPSimpleForm')) {
             // Build the form
 ?>
 
-            <div class="" style="margin: 0; width: 60%">
+            <div class="" style="margin: 0;width: 100%;max-width: 530px;">
                 <h1 id="calc-header">Personal Income Tax Calculator</h1>
                 <p id="calc-desc">
                     We have created this Income Tax calculator as a free to use tool for calculating Income Tax rates in Ethiopia.
@@ -85,8 +85,8 @@ if (!class_exists('WPSimpleForm')) {
                         <!-- 
                         <label for="monthlySalary">Monthly Salary</label> -->
                         <div class="row input-with-select">
-                            <input class="col-10 col-sm-12" id="monthlySalary" name="monthlySalary" type="number" placeholder="Monthly Salary" />
-                            <div class="select col-2 col-sm-12">
+                            <input class="col-md-10 col-lg-10 col-sm-12" id="monthlySalary" name="monthlySalary" type="number" placeholder="Monthly Salary" />
+                            <div class="select col-md-2 col-lg-2 col-sm-12">
                                 <select id="income-tax-type">
                                     <option selected="selected" value="gross">Gross Salary</option>
                                     <option value="net">Net Salary</option>
@@ -302,7 +302,7 @@ if (!class_exists('WPSimpleForm')) {
             // Build the form
         ?>
 
-            <div class="" style="margin: 0; width: 60%">
+            <div class="" style="margin: 0;width: 100%;max-width: 530px;">
                 <h1 id="calc-header">VAT Calculator</h1>
                 <p id="calc-desc">
                     This tool will help you calculate VAT from your payment in Ethiopia.
@@ -313,8 +313,8 @@ if (!class_exists('WPSimpleForm')) {
                         <label for="monthlySalary">Monthly Salary</label> -->
                         <div class="input-with-select row">
 
-                            <input class="col-10 col-sm-12" id="payment" name="payment" type="number" placeholder="Payment" />
-                            <div class="col-2 col-sm-12 select">
+                            <input class="col-md-10 col-lg-10 col-sm-12" id="payment" name="payment" type="number" placeholder="Payment" />
+                            <div class="col-md-2 col-lg-2 col-sm-12 select">
                                 <select id="vat-type">
                                     <option selected="selected" value="inclusive">Including Tax</option>
                                     <option value="exclusive">Excluding VAT</option>

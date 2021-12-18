@@ -79,9 +79,9 @@ table.calc-result-table td {
     color: #FAA31A;
 }
 
-.input-with-select{
-    /* width: 100%;
-    display: relative; */
+.input-with-select input{
+    height: 3em;
+    border-radius: 0.25em;
 }
 
 .select select {
@@ -107,6 +107,8 @@ table.calc-result-table td {
 /* Custom Select wrapper */
 .select {
     position: relative;
+    margin: 0;
+    padding: 0;
     right: 0;
     display: flex;
     min-width: 20em;

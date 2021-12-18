@@ -84,6 +84,13 @@ if (!class_exists('WPSimpleForm')) {
                         <!-- 
                         <label for="monthlySalary">Monthly Salary</label> -->
                         <input id="monthlySalary" name="monthlySalary" type="number" placeholder="Monthly Salary" />
+                        <div class="select">
+                            <select id="income-tax-type">
+                                <option selected="selected" value="gross">Gross Salary</option>
+                                <option value="net">Net Salary</option>
+                            </select>
+                        </div>
+
                         <p><small>This calculator assumes your Ethiopian tax payer</small></p>
                         <p id="taxError"><small></small></p>
                     </div>
@@ -129,52 +136,99 @@ if (!class_exists('WPSimpleForm')) {
                         let rate;
                         let deducatable;
                         let pention_rate = .07;
+                        if ($("#income-tax-type").val() == "gross") {
+                            grossSalary = Number.parseFloat($("#monthlySalary").val());
+                            if (!grossSalary || grossSalary == 0) {
 
-                        grossSalary = Number.parseFloat($("#monthlySalary").val());
+                                $("#taxError").html("<small>Please Enter a  valid salary.</small>");
+                                $("#taxError").show();
+                                return;
+                            }
 
-                        if (!grossSalary || grossSalary == 0) {
+                            if (grossSalary <= 600) {
+                                rate = 0;
+                                deducatable = 0;
+                            } else if (600 < grossSalary && grossSalary <= 1650) {
+                                rate = 0.1;
+                                deducatable = 60;
+                            } else if (1650 < grossSalary && grossSalary <= 3200) {
+                                rate = 0.15;
+                                deducatable = 142.5;
+                            } else if (3200 < grossSalary && grossSalary <= 5250) {
+                                rate = 0.20;
+                                deducatable = 302.50;
+                            } else if (5250 < grossSalary && grossSalary <= 7800) {
+                                rate = 0.25;
+                                deducatable = 565.00;
+                            } else if (7800 < grossSalary && grossSalary <= 10900) {
+                                rate = 0.30;
+                                deducatable = 955.00;
+                            } else if (10900 < grossSalary) {
+                                rate = 0.35;
+                                deducatable = 1500.00;
+                            } else {
+                                console.log("noting matxched", grossSalary, typeof grossSalary);
+                            }
 
-                            $("#taxError").html("<small>Please Enter a  valid salary.</small>");
-                            $("#taxError").show();
-                            return;
-                        }
+                            pention = pention_rate * grossSalary;
+                            incomeTax = (rate * grossSalary) - deducatable;
+                            netSalary = grossSalary - pention - incomeTax;
 
-                        if (grossSalary <= 600) {
-                            rate = 0;
-                            deducatable = 0;
-                        } else if (600 < grossSalary && grossSalary <= 1650) {
-                            rate = 0.1;
-                            deducatable = 60;
-                        } else if (1650 < grossSalary && grossSalary <= 3200) {
-                            rate = 0.15;
-                            deducatable = 142.5;
-                        } else if (3200 < grossSalary && grossSalary <= 5250) {
-                            rate = 0.20;
-                            deducatable = 302.50;
-                        } else if (5250 < grossSalary && grossSalary <= 7800) {
-                            rate = 0.25;
-                            deducatable = 565.00;
-                        } else if (7800 < grossSalary && grossSalary <= 10900) {
-                            rate = 0.30;
-                            deducatable = 955.00;
-                        } else if (10900 < grossSalary) {
-                            rate = 0.35;
-                            deducatable = 1500.00;
+                            $("#pention").text(pention.toFixed(2) + " ETB");
+                            $("#incomeTax").text(incomeTax.toFixed(2) + " ETB");
+                            $("#netSalary").text(netSalary.toFixed(2) + " ETB");
+                            $("#grossSalary").text(grossSalary.toFixed(2) + " ETB");
+                            $(".formQuestion").hide();
+                            $("#results").show(500);
+
                         } else {
-                            console.log("noting matxched", grossSalary, typeof grossSalary);
+                            netSalary = Number.parseFloat($("#monthlySalary").val());
+                            if (!grossSalary || grossSalary == 0) {
+
+                                $("#taxError").html("<small>Please Enter a  valid salary.</small>");
+                                $("#taxError").show();
+                                return;
+                            }
+
+                            if (netSalary <= 558.00) {
+                                rate = 0;
+                                deducatable = 0;
+                            } else if (558 < netSalary && netSalary <= 1429.50) {
+                                rate = 0.1;
+                                deducatable = 60;
+                            } else if (1429.50 < netSalary && netSalary <= 2638.50) {
+                                rate = 0.15;
+                                deducatable = 142.5;
+                            } else if (2638.50 < netSalary && netSalary <= 4135.00) {
+                                rate = 0.20;
+                                deducatable = 302.50;
+                            } else if (4135.00 < netSalary && netSalary <= 5869.00) {
+                                rate = 0.25;
+                                deducatable = 565.00;
+                            } else if (5869.00 < netSalary && netSalary <= 7822.00) {
+                                rate = 0.30;
+                                deducatable = 955.00;
+                            } else if (7822.00 < netSalary) {
+                                rate = 0.35;
+                                deducatable = 1500.00;
+                            } else {
+                                console.log("noting matxched", netSalary, typeof netSalary);
+                            }
+                            grossSalary = (netSalary + deducatable) / (1 - rate - pention_rate)
+                            pention = pention_rate * grossSalary;
+                            incomeTax = (rate * grossSalary) - deducatable;
+                            netSalary = grossSalary - pention - incomeTax;
+
+                            $("#pention").text(pention.toFixed(2) + " ETB");
+                            $("#incomeTax").text(incomeTax.toFixed(2) + " ETB");
+                            $("#netSalary").text(netSalary.toFixed(2) + " ETB");
+                            $("#grossSalary").text(grossSalary.toFixed(2) + " ETB");
+                            $(".formQuestion").hide();
+                            $("#results").show(500);
+
                         }
 
 
-                        pention = pention_rate * grossSalary;
-                        incomeTax = (rate * grossSalary) - deducatable;
-                        netSalary = grossSalary - pention - incomeTax;
-
-                        $("#pention").text(pention.toFixed(2) + " ETB");
-                        $("#incomeTax").text(incomeTax.toFixed(2) + " ETB");
-                        $("#netSalary").text(netSalary.toFixed(2) + " ETB");
-                        $("#grossSalary").text(grossSalary.toFixed(2) + " ETB");
-                        $(".formQuestion").hide();
-                        $("#results").show(500);
 
                     })(jQuery)
                 }
@@ -183,7 +237,7 @@ if (!class_exists('WPSimpleForm')) {
                     (function($) {
                         console.log("cliked1")
                         $("#results").hide();
-                        
+
                         $(".formQuestion").show(500);
                     })(jQuery)
                 }

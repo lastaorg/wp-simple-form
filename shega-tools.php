@@ -328,7 +328,7 @@ if (!class_exists('WPSimpleForm')) {
                         <p><small>This calculator assumes you are in Ethiopia.</small></p>
                         <p id="taxError"><small></small></p>
                     </div>
-                    <button id="submitTax" onclick="submitTaxFuc()" class="btn btn-small bg-grey-dark-one" style="background: #faa31b;">Calculate your tax</button>
+                    <button id="submitTax" onclick="submitTaxFuc()" class="btn btn-small bg-grey-dark-one" style="background: #faa31b;">Calculate VAT</button>
                 </div>
 
 
